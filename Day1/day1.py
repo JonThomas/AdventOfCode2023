@@ -10,7 +10,16 @@ print(file_path)
 with open(file_path, "r") as file:
     array = file.readlines()
 
+total = 0
+
 for entry in array:
-    print(entry.strip())  # Example: printing each entry after stripping newline characters
+    # Find the first digit in the entry
+    first_digit = next((char for char in entry if char.isdigit()), None)
+    # Find the last digit in the entry
+    last_digit = next((char for char in entry[::-1] if char.isdigit()), None)
 
+    print(entry.strip(), ": First Digit:", first_digit, "Last Digit:", last_digit)
 
+    total += int(first_digit + last_digit)
+
+print("Total:", total)
