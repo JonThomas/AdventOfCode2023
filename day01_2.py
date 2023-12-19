@@ -1,15 +1,4 @@
-import os
-
-def readFile():
-    # Get the directory of the current script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Construct the file path relative to the script directory
-    file_path = os.path.join(script_dir, "input.txt")
-    #print(file_path)
-
-    with open(file_path, "r") as file:
-        return file.readlines()
+from fileOps import readFile
 
 numbersArray = ["one","two","three","four","five","six","seven","eight","nine"]
     
@@ -40,7 +29,7 @@ def findNumberInStringFromEnd(input):
 
 total = 0
 
-for entry in readFile():
+for entry in readFile("day01input.txt"):
     # Find the first digit in the entry
     first_digit = findNumberInString(entry.strip())
     # Find the last digit in the entry

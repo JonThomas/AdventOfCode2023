@@ -1,32 +1,17 @@
-import os
-from collections import namedtuple
+from fileOps import readFile
 
-def readFile():
-    # Get the directory of the current script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Construct the file path relative to the script directory
-    file_path = os.path.join(script_dir, "input.txt")
-    #print(file_path)
-
-    with open(file_path, "r") as file:
-        return file.readlines()
-
-#Point = namedtuple("Point", ["x", "y"])
-
-## 
 class pointWithColor:
     def __init__(self, direction, length, x0, y0, color):
-        if direction == "R":
+        if direction == "0":    # R
             self.x = x0 + length
             self.y = y0
-        elif direction == "L":
+        elif direction == "2":  # L
             self.x = x0 - length
             self.y = y0
-        elif direction == "U":
+        elif direction == "3":  # U
             self.x = x0
             self.y = y0 + length
-        elif direction == "D":
+        elif direction == "1":  # D
             self.x = x0
             self.y = y0 - length
         else:
@@ -43,18 +28,19 @@ def parseFile(lines):
     y0 = 0
     for line in lines:
         splitLine = line.strip().split()
+        color = splitLine[2].replace("(", "").replace(")", "").replace("#", "")
         point = pointWithColor(
-            splitLine[0], 
-            int(splitLine[1]), 
+            color[5:6], 
+            int(color[:5], 16), 
             x0,
             y0,
-            splitLine[2].replace("(", "").replace(")", ""))
+            color)
         list.append(point)
         x0 = point.x
         y0 = point.y
     return list
 
-points = parseFile(readFile())
+points = parseFile(readFile("day18input.txt"))
 
 # https://web.archive.org/web/20100405070507/http://valis.cs.uiuc.edu/~sariel/research/CG/compgeom/msg00831.html#        Let 'vertices' be an array of N pairs (x,y), indexed from 0
 #        Let 'area' = 0.0
