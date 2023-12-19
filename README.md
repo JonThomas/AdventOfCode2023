@@ -10,6 +10,7 @@ Day3: [⭐](day03.py)[⭐](day03_2.py)
 
 Day18: [⭐](day18.py)[⭐](day18_2.py)
 
+Day19: [⭐](day19.py)
 
 Day 2 resources:
 * [About modules and packages](https://docs.python.org/2/tutorial/modules.html)
