@@ -7,7 +7,7 @@ Day2: [⭐](day02.py)[⭐](day02_2.py)
 
 Day3: [⭐](day03.py)[⭐](day03_2.py)
 
-Day4: [⭐](day04.py)
+Day4: [⭐](day04.py)[⭐](day04_2.py)
 
 
 Day18: [⭐](day18.py)[⭐](day18_2.py)
